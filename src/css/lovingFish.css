@@ -1,0 +1,28 @@
+body{
+    padding-top: 10px;
+}
+.background{
+    width: 800px;
+    height: 600px;
+    margin: 0 auto;
+}
+#canvas{
+    position: relative;
+    width: 800px;
+    height: 600px;
+    margin: 0;
+}
+.canvas_son{
+    position: absolute;
+    width: 800px;
+    height: 600px;
+    bottom: 0;
+    left: 0;
+}
+#canvas_son1{
+    z-index: 1;
+}
+#canvas_son2{
+    z-index: 0;
+}
+
