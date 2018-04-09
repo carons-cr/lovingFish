@@ -11,11 +11,11 @@ function game() {
 
 function init() {
     canvasUpper = document.getElementById("canvas_upper");//fishes, dust, UI, circle
-    canvasContextUpper = canvasUpper.getContext();
+    canvasContextUpper = canvasUpper.getContext("2d");
     canvasLower = document.getElementById("canvas_lower");//background, anemone, fruits
-    canvasContextLower = canvasLower.getContext();
+    canvasContextLower = canvasLower.getContext("2d");
 }
 
 function gameloop() {
-    //requestAnimFrame(gameloop);
+    requestAnimFrame(gameloop);
 }
