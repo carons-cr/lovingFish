@@ -6,23 +6,23 @@ body{
     height: 600px;
     margin: 0 auto;
 }
-#canvas{
+#canvas_all{
     position: relative;
     width: 800px;
     height: 600px;
     margin: 0;
 }
-.canvas_son{
+.canvas{
     position: absolute;
     width: 800px;
     height: 600px;
     bottom: 0;
     left: 0;
 }
-#canvas_son1{
+#canvas_upper{
     z-index: 1;
 }
-#canvas_son2{
+#canvas_lower{
     z-index: 0;
 }
 
