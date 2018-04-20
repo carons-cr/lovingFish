@@ -2,6 +2,8 @@ var canvasUpper;
 var canvasLower;
 var canvasContextUpper;
 var canvasContextLower;
+var lastTime;
+var interval;
 
 document.body.onload = game;
 function game() {
@@ -14,8 +16,14 @@ function init() {
     canvasContextUpper = canvasUpper.getContext("2d");
     canvasLower = document.getElementById("canvas_lower");//background, anemone, fruits
     canvasContextLower = canvasLower.getContext("2d");
+    lastTime = Date.now();
+    interval = 0;
 }
 
 function gameloop() {
-    requestAnimFrame(gameloop);
+    window.requestAnimFrame(gameloop);
+    var nowTime = Date.now();
+    interval = nowTime - lastTime;
+    lastTime = nowTime;
+    console.log(interval);
 }

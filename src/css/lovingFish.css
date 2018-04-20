@@ -2,20 +2,14 @@ body{
     padding-top: 10px;
 }
 .background{
-    width: 800px;
-    height: 600px;
     margin: 0 auto;
 }
 #canvas_all{
     position: relative;
-    width: 800px;
-    height: 600px;
     margin: 0;
 }
 .canvas{
     position: absolute;
-    width: 800px;
-    height: 600px;
     bottom: 0;
     left: 0;
 }
@@ -25,4 +19,7 @@ body{
 #canvas_lower{
     z-index: 0;
 }
-
+.background, #canvas_all, .canvas{
+    width: 800px;
+    height: 600px;
+}
