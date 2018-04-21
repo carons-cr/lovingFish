@@ -2,12 +2,21 @@ var canvasUpper;
 var canvasLower;
 var canvasContextUpper;
 var canvasContextLower;
+
 var lastTime;
 var interval;
+
+var backgroundPicture;
+var canvasWidth;
+var canvasHeight;
+
+var anemone;
 
 document.body.onload = game;
 function game() {
     init();
+    lastTime = Date.now();
+    interval = 0;
     gameloop();
 }
 
@@ -16,8 +25,14 @@ function init() {
     canvasContextUpper = canvasUpper.getContext("2d");
     canvasLower = document.getElementById("canvas_lower");//background, anemone, fruits
     canvasContextLower = canvasLower.getContext("2d");
-    lastTime = Date.now();
-    interval = 0;
+
+    backgroundPicture = new Image();
+    backgroundPicture.src = "../img/background.jpg";
+    canvasWidth = canvasLower.width;
+    canvasHeight = canvasLower.height;
+
+    anemone = new Anemone();
+    anemone.init();
 }
 
 function gameloop() {
@@ -25,5 +40,7 @@ function gameloop() {
     var nowTime = Date.now();
     interval = nowTime - lastTime;
     lastTime = nowTime;
-    console.log(interval);
+
+    drawBackground();
 }
+
