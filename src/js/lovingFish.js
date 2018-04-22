@@ -42,5 +42,6 @@ function gameloop() {
     lastTime = nowTime;
 
     drawBackground();
+    anemone.draw();
 }
 

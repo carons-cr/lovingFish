@@ -19,7 +19,7 @@ body{
 #canvas_lower{
     z-index: 0;
 }
-.background, #canvas_all, .canvas{
+.background, #canvas_all{
     width: 800px;
     height: 600px;
 }
