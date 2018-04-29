@@ -11,6 +11,7 @@ var canvasWidth;
 var canvasHeight;
 
 var anemone;
+var fruit;
 
 document.body.onload = game;
 function game() {
@@ -33,6 +34,9 @@ function init() {
 
     anemone = new Anemone();
     anemone.init();
+
+    fruit = new Fruit();
+    fruit.init();
 }
 
 function gameloop() {
@@ -43,5 +47,6 @@ function gameloop() {
 
     drawBackground();
     anemone.draw();
+    fruit.draw();
 }
 
