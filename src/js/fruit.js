@@ -15,11 +15,7 @@ Fruit.prototype.init = function() {
 
     for(var i = 0; i < this.number; i++) {
         this.alive[i] = true;
-        this.bornPositionX[i] = 0;
-        this.bornPositionY[i] = 0;
         this.born(i);
-        this.width[i] = 0;
-        this.speed[i] = Math.random() * 0.01 + 0.005;
     }
 
 };
@@ -45,9 +41,8 @@ Fruit.prototype.born = function(i) {
     this.bornPositionY[i] = canvasHeight - anemone.height[bornAnemoneId];
 
     this.width[i] = 0;
+    this.speed[i] = Math.random() * 0.01 + 0.005;
 };
-
-
 Fruit.prototype.getBornAnemoneIdNoRepeat = function() {
     var bornAnemoneId = Math.floor(Math.random() * anemone.number);
     while (this.bornAnemoneIdArr.length !== 0 && this.bornAnemoneIdArr.indexOf(bornAnemoneId) !== -1) {
@@ -56,11 +51,3 @@ Fruit.prototype.getBornAnemoneIdNoRepeat = function() {
     this.bornAnemoneIdArr.push(bornAnemoneId);
     return bornAnemoneId;
 };
-// Fruit.prototype.update = function() {
-//     var number = 0;
-//     for (var i = 0; i < this.number; i++) {
-//         if (this.alive[i]) {
-//             number++;
-//         }
-//     }
-// };
