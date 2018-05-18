@@ -13,6 +13,11 @@ var canvasHeight;
 var anemone;
 var fruit;
 
+var bigFish;
+
+var mousePositionX;
+var mousePositionY;
+
 document.body.onload = game;
 function game() {
     init();
@@ -37,6 +42,13 @@ function init() {
 
     fruit = new Fruit();
     fruit.init();
+
+    bigFish = new BigFish();
+    bigFish.init();
+
+    mousePositionX = canvasWidth * 0.5;
+    mousePositionY = canvasHeight * 0.5;
+    canvasUpper.addEventListener("mousemove", onMouseMove, false);
 }
 
 function gameloop() {
@@ -47,6 +59,18 @@ function gameloop() {
 
     drawBackground();
     anemone.draw();
+    fruitMonitor();
     fruit.draw();
+
+    canvasContextUpper.clearRect(0, 0, canvasWidth, canvasHeight);
+    bigFish.draw();
+}
+
+function onMouseMove(e) {
+    if (e.offsetX || e.layerX) {
+        mousePositionX = e.offsetX === undefined ? e.layerX : e.offsetX;
+        mousePositionY = e.offsetY === undefined ? e.layerY : e.offsetY;
+    }
+
 }
 

@@ -25,16 +25,16 @@ function randomColor() {
 }
 
 
-function lerpAngle(a, b, t) {
-	var d = b - a;
-	if (d > Math.PI) d = d - 2 * Math.PI;
-	if (d < -Math.PI) d = d + 2 * Math.PI;
-	return a + d * t;
+function closeToAimAngle(aim, current, ratio) {
+	var difference = aim - current;
+	if (difference > Math.PI) difference = difference - 2 * Math.PI;
+	if (difference < -Math.PI) difference = difference + 2 * Math.PI;
+	return current + difference * ratio;
 }
 
-function lerpDistance(aim, cur, ratio) {
-	var delta = cur - aim;
-	return aim + delta * ratio;
+function closeToAimPosition(aim, current, ratio) {
+	var difference = aim - current;
+	return current + difference * ratio;
 }
 
 function inOboundary(arrX, arrY, l, r, t, b) { //在l r t b范围内的检测
