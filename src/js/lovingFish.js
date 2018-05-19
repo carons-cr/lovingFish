@@ -14,9 +14,10 @@ var anemone;
 var fruit;
 
 var bigFish;
-
 var mousePositionX;
 var mousePositionY;
+
+var babyFish;
 
 document.body.onload = game;
 function game() {
@@ -45,10 +46,12 @@ function init() {
 
     bigFish = new BigFish();
     bigFish.init();
-
     mousePositionX = canvasWidth * 0.5;
     mousePositionY = canvasHeight * 0.5;
     canvasUpper.addEventListener("mousemove", onMouseMove, false);
+
+    babyFish = new BabyFish();
+    babyFish.init();
 }
 
 function gameloop() {
@@ -66,9 +69,12 @@ function gameloop() {
     fruit.draw();
 
     canvasContextUpper.clearRect(0, 0, canvasWidth, canvasHeight);
-    bigFish.draw();
 
+    bigFish.draw();
     bigFishFruitCollisionDetection();
+
+    babyFish.draw();
+
 }
 
 function onMouseMove(e) {

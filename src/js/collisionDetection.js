@@ -1,11 +1,11 @@
 function bigFishFruitCollisionDetection() {
     for (var i = 0; i < fruit.number; i++) {
         if (fruit.alive[i]) {
-            var currentPoint = new Point();
-            currentPoint.setXY(bigFish.axisOriginX, bigFish.axisOriginY);
-            var aimPoint = new Point(fruit.bornPositionX[i], fruit.bornPositionY[i]);
-            aimPoint.setXY(fruit.bornPositionX[i], fruit.bornPositionY[i]);
-            var distance = distanceDetection(aimPoint, currentPoint);
+            var bigFishPoint = new Point();
+            bigFishPoint.setXY(bigFish.axisOriginX, bigFish.axisOriginY);
+            var fruitPoint = new Point();
+            fruitPoint.setXY(fruit.bornPositionX[i], fruit.bornPositionY[i]);
+            var distance = distanceDetection(fruitPoint, bigFishPoint);
             if (distance < 900) {
                 fruit.dead(i);
             }
