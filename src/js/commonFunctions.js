@@ -6,8 +6,8 @@ window.requestAnimFrame = (function() {
 })();
 
 
-function calLength2(x1, y1, x2, y2) {
-	return Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2);
+function distanceDetection(currentPoint, aimPoint) {
+	return Math.pow(currentPoint.x - aimPoint.x, 2) + Math.pow(currentPoint.y - aimPoint.y, 2);
 }
 
 

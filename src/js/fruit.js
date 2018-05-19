@@ -5,7 +5,6 @@ var Fruit = function() {
     this.blueFruit = new Image();
     this.bornPositionX = [];
     this.bornPositionY = [];
-    //this.bornAnemoneIdArr = [];
     this.width = [];
     this.speed = [];
 };
@@ -38,7 +37,7 @@ Fruit.prototype.draw = function() {
 };
 Fruit.prototype.born = function(i) {
     Math.random() < 0.2 ? this.fruitType[i] = "blue" : this.fruitType[i] = "orange";
-    var bornAnemoneId = Math.floor(Math.random() * this.number);
+    var bornAnemoneId = Math.floor(Math.random() * anemone.number);
     this.bornPositionX[i] = anemone.startPosition[bornAnemoneId];
     this.bornPositionY[i] = canvasHeight - anemone.height[bornAnemoneId];
     this.width[i] = 0;
@@ -63,3 +62,6 @@ function sendFruit() {
         }
     }
 }
+Fruit.prototype.dead = function (i) {
+    this.alive[i] = false;
+};

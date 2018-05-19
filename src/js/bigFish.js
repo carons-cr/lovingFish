@@ -13,19 +13,18 @@ BigFish.prototype.init = function () {
     this.bigEye.src = "../img/bigEye0.png";
     this.bigBody.src = "../img/bigSwim0.png";
     this.bigTail.src = "../img/bigTail0.png";
+    this.axisOriginAngle = 0;
 };
 BigFish.prototype.draw = function () {
-    this.axisOriginX = closeToAimPosition(mousePositionX, this.axisOriginX, 0.99);
-    this.axisOriginY = closeToAimPosition(mousePositionY, this.axisOriginY, 0.99);
-    var mouseAngle = Math.atan2(mousePositionY - this.axisOriginY, mousePositionX - this.axisOriginX) + Math.PI;
-    this.axisOriginAngle = closeToAimAngle(mouseAngle, this.axisOriginAngle, 0.6);
+    this.axisOriginX = closeToAimPosition(mousePositionX, this.axisOriginX, 0.3);
+    this.axisOriginY = closeToAimPosition(mousePositionY, this.axisOriginY, 0.3);
+    var mouseAngle = Math.atan2(this.axisOriginY - mousePositionY, this.axisOriginX - mousePositionX);
+    this.axisOriginAngle = closeToAimAngle(mouseAngle, this.axisOriginAngle, 0.9);
     canvasContextUpper.save();
     canvasContextUpper.translate(this.axisOriginX, this.axisOriginY);
     canvasContextUpper.rotate(this.axisOriginAngle);
     canvasContextUpper.drawImage(this.bigEye, -this.bigEye.width * 0.5, -this.bigEye.height * 0.5);
     canvasContextUpper.drawImage(this.bigBody, -this.bigBody.width * 0.5, -this.bigBody.height * 0.5);
     canvasContextUpper.drawImage(this.bigTail, this.bigBody.width * 0.5 - 10, -this.bigTail.height * 0.5);
-
-
     canvasContextUpper.restore();
 };

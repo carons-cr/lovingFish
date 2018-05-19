@@ -56,6 +56,9 @@ function gameloop() {
     var nowTime = Date.now();
     interval = nowTime - lastTime;
     lastTime = nowTime;
+    if (interval > 50) {
+        interval = 50;
+    }
 
     drawBackground();
     anemone.draw();
@@ -64,6 +67,8 @@ function gameloop() {
 
     canvasContextUpper.clearRect(0, 0, canvasWidth, canvasHeight);
     bigFish.draw();
+
+    bigFishFruitCollisionDetection();
 }
 
 function onMouseMove(e) {
