@@ -8,7 +8,7 @@ var Fruit = function() {
     this.width = [];
     this.speed = [];
 };
-Fruit.prototype.number = 30;
+Fruit.prototype.number = 50;
 Fruit.prototype.init = function() {
     this.orangeFruit.src = "../img/fruit.png";
     this.blueFruit.src = "../img/blue.png";
@@ -50,7 +50,7 @@ function fruitMonitor() {
             aliveNumber++;
         }
     }
-    if (aliveNumber < 20) {
+    if (aliveNumber < 42) {
         sendFruit();
     }
 }

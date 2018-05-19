@@ -5,7 +5,7 @@ var Anemone = function () {
 Anemone.prototype.number = 50;
 Anemone.prototype.init = function () {
     for (var i = 0; i < this.number; i++) {
-        this.startPosition[i] = i * 18 + Math.random() * 20;
+        this.startPosition[i] = i * 20 + Math.random() * 20;
         this.height[i] = 200 + Math.random() * 50;
     }
 };
