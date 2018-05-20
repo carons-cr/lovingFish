@@ -4,19 +4,19 @@ var BabyFish = function () {
     this.axisOriginAngle = 0;
     this.babyTail = [];
     this.babyTailNumber = 0;
+    this.babyTailDuration = 0;
     this.babyTailTimer = 0;
     this.babyTailIndex = 0;
-    this.babyTailDuration = 0;
     this.babyBody = [];
     this.babyBodyNumber = 0;
+    this.babyBodyDuration = 0;
     this.babyBodyTimer = 0;
     this.babyBodyIndex = 0;
-    this.babyBodyDuration = 0;
     this.babyEye = [];
     this.babyEyeNumber = 0;
+    this.babyEyeDuration = 0;
     this.babyEyeTimer = 0;
     this.babyEyeIndex = 0;
-    this.babyEyeDuration = 0;
 
 };
 BabyFish.prototype.init = function () {
