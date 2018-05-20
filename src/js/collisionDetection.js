@@ -1,10 +1,8 @@
 function bigFishFruitCollisionDetection() {
+    var bigFishPoint = new Point(bigFish.axisOriginX, bigFish.axisOriginY);
     for (var i = 0; i < fruit.number; i++) {
         if (fruit.alive[i]) {
-            var bigFishPoint = new Point();
-            bigFishPoint.setXY(bigFish.axisOriginX, bigFish.axisOriginY);
-            var fruitPoint = new Point();
-            fruitPoint.setXY(fruit.bornPositionX[i], fruit.bornPositionY[i]);
+            var fruitPoint = new Point(fruit.bornPositionX[i], fruit.bornPositionY[i]);
             var distance = distanceDetection(fruitPoint, bigFishPoint);
             if (distance < 900) {
                 fruit.dead(i);
@@ -12,11 +10,15 @@ function bigFishFruitCollisionDetection() {
         }
     }
 }
-var Point = function() {
-    this.x = 0;
-    this.y = 0;
-};
-Point.prototype.setXY = function (x, y) {
+function  bigFishBabyFishCollisionDetection() {
+    var bigFishPoint = new Point(bigFish.axisOriginX, bigFish.axisOriginY);
+    var babyFishPoint = new Point(babyFish.axisOriginX, babyFish.axisOriginY);
+    var distance = distanceDetection(babyFishPoint, bigFishPoint);
+    if (distance < 900) {
+        babyFish.babyBodyIndex = 0;
+    }
+}
+var Point = function(x, y) {
     this.x = x;
     this.y = y;
 };

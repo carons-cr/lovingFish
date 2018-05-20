@@ -17,6 +17,7 @@ var mousePositionX;
 var mousePositionY;
 var babyFish;
 
+
 document.body.onload = game;
 function game() {
     init();
@@ -67,6 +68,7 @@ function gameloop() {
     bigFish.draw();
     bigFishFruitCollisionDetection();
     babyFish.draw();
+    bigFishBabyFishCollisionDetection();
 }
 
 function onMouseMove(e) {
