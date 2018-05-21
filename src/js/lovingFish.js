@@ -17,6 +17,7 @@ var mousePositionX;
 var mousePositionY;
 var babyFish;
 
+var scoreCalculation;
 
 document.body.onload = game;
 function game() {
@@ -48,6 +49,9 @@ function init() {
     canvasUpper.addEventListener("mousemove", onMouseMove, false);
     babyFish = new BabyFish();
     babyFish.init();
+
+    scoreCalculation = new ScoreCalculation();
+    scoreCalculation.init();
 }
 
 function gameloop() {
@@ -69,6 +73,8 @@ function gameloop() {
     bigFishFruitCollisionDetection();
     babyFish.draw();
     bigFishBabyFishCollisionDetection();
+
+    scoreCalculation.draw();
 }
 
 function onMouseMove(e) {
