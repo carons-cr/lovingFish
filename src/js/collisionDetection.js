@@ -14,6 +14,7 @@ function bigFishFruitCollisionDetection() {
 function bigFishEatingFruit(i) {
     fruit.dead(i);
     scoreCalculation.eatenFruitNum++;
+    bigFish.bigBodyIndex = bigFish.bigBodyIndex >= 7 ? 7 : bigFish.bigBodyIndex + 1;
     scoreCalculation.fruitScore = fruit.fruitType[i] === "orange" ? 1 : 2;
 }
 function  bigFishBabyFishCollisionDetection() {
@@ -27,6 +28,7 @@ function  bigFishBabyFishCollisionDetection() {
 function bigFishFeedingBabyFish() {
     babyFish.revive();
     scoreCalculation.reset();
+    bigFish.recover();
 }
 var Point = function(x, y) {
     this.x = x;

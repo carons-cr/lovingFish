@@ -80,14 +80,6 @@ BabyFish.prototype.babyTailMonitor = function(){
     }
 };
 BabyFish.prototype.babyBodyMonitor = function() {
-    this.babyEyeTimer += interval;
-    if (this.babyEyeTimer > this.babyEyeDuration) {
-        this.babyEyeIndex = (this.babyEyeIndex + 1) % this.babyEyeNumber;
-        this.babyEyeTimer %= this.babyEyeDuration;
-        this.babyEyeDuration = this.babyEyeIndex === 0 ? Math.random() * 1500 + 2000 : 200;
-    }
-};
-BabyFish.prototype.babyEyeMonitor = function() {
     this.babyBodyTimer += interval;
     if (this.babyBodyTimer > this.babyBodyDuration) {
         this.babyBodyIndex = this.babyBodyIndex + 1;
@@ -95,6 +87,14 @@ BabyFish.prototype.babyEyeMonitor = function() {
         if (this.babyBodyIndex > this.babyBodyNumber -1) {
             this.babyBodyIndex = this.babyBodyNumber -1;
         }
+    }
+};
+BabyFish.prototype.babyEyeMonitor = function() {
+    this.babyEyeTimer += interval;
+    if (this.babyEyeTimer > this.babyEyeDuration) {
+        this.babyEyeIndex = (this.babyEyeIndex + 1) % this.babyEyeNumber;
+        this.babyEyeTimer %= this.babyEyeDuration;
+        this.babyEyeDuration = this.babyEyeIndex === 0 ? Math.random() * 1500 + 2000 : 200;
     }
 };
 BabyFish.prototype.revive = function () {

@@ -70,10 +70,9 @@ function gameloop() {
 
     canvasContextUpper.clearRect(0, 0, canvasWidth, canvasHeight);
     bigFish.draw();
-    bigFishFruitCollisionDetection();
     babyFish.draw();
+    bigFishFruitCollisionDetection();
     bigFishBabyFishCollisionDetection();
-
     scoreCalculation.draw();
 }
 
