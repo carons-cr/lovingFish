@@ -1,16 +1,19 @@
 var ScoreCalculation = function () {
-    this.eatenFruitNum = 0;
+    this.eatenFruitNumber = 0;
     this.fruitScore = 0;
+    this.totalScore = 0;
 };
 ScoreCalculation.prototype.init = function () {
     this.fruitScore = 1;
+    canvasContextUpper.fillStyle = "white";
+    canvasContextUpper.font = "30px Verdana";
+    canvasContextUpper.textAlign = "center";
 };
 ScoreCalculation.prototype.draw = function () {
-    canvasContextUpper.fillStyle = "white";
-    canvasContextUpper.fillText("eatenFruitNum " + this.eatenFruitNum, canvasWidth * 0.5, canvasHeight -50);
-    canvasContextUpper.fillText("fruitScore " + this.fruitScore, canvasWidth * 0.5, canvasHeight  - 80);
+    canvasContextUpper.fillText("fruitScore " + this.fruitScore, canvasWidth*0.5, canvasHeight  - 100);
+    canvasContextUpper.fillText("totalScore" + this.totalScore, canvasWidth*0.5, canvasHeight - 50);
 };
-ScoreCalculation.prototype.reset = function () {
-    scoreCalculation.eatenFruitNum = 0;
-    scoreCalculation.fruitScore = 1;
+ScoreCalculation.prototype.addScore = function () {
+    this.totalScore += this.eatenFruitNumber*this.fruitScore*100;
+    this.eatenFruitNumber = 0;//很可能不需要，暂时留着
 };

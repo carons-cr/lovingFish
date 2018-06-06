@@ -22,8 +22,8 @@ var BigFish = function () {
 
 };
 BigFish.prototype.init = function () {
-    this.axisOriginX = canvasWidth * 0.5;
-    this.axisOriginY = canvasHeight * 0.5;
+    this.axisOriginX = canvasWidth*0.5;
+    this.axisOriginY = canvasHeight*0.5;
     this.bigTailInit();
     this.bigBodyInit();
     this.bigEyeInit();
@@ -66,9 +66,9 @@ BigFish.prototype.draw = function () {
     canvasContextUpper.save();
     canvasContextUpper.translate(this.axisOriginX, this.axisOriginY);
     canvasContextUpper.rotate(this.axisOriginAngle);
-    canvasContextUpper.drawImage(currentBigTail, -currentBigTail.width * 0.5 + 30, -currentBigTail.height * 0.5);
-    canvasContextUpper.drawImage(currentBigBody, -currentBigBody.width * 0.5, -currentBigBody.height * 0.5);
-    canvasContextUpper.drawImage(currentBigEye, -currentBigEye.width * 0.5, -currentBigEye.height * 0.5);
+    canvasContextUpper.drawImage(currentBigTail, -currentBigTail.width*0.5 + 30, -currentBigTail.height*0.5);
+    canvasContextUpper.drawImage(currentBigBody, -currentBigBody.width*0.5, -currentBigBody.height*0.5);
+    canvasContextUpper.drawImage(currentBigEye, -currentBigEye.width*0.5, -currentBigEye.height*0.5);
     canvasContextUpper.restore();
 };
 BigFish.prototype.bigFishMonitor = function () {
@@ -87,7 +87,7 @@ BigFish.prototype.bigEyeMonitor = function () {
     if (this.bigEyeTimer > this.bigEyeDuration) {
         this.bigEyeIndex = (this.bigEyeIndex + 1) % 2;
         this.bigEyeTimer %= this.bigEyeDuration;
-        this.bigEyeDuration = this.bigEyeIndex === 0 ? Math.random() * 1500 + 2000 : 200;
+        this.bigEyeDuration = this.bigEyeIndex === 0 ? Math.random()*1500 + 2000 : 200;
     }
 };
 BigFish.prototype.recover = function () {

@@ -8,7 +8,7 @@ Anemone.prototype.number = 50;
 Anemone.prototype.init = function () {
     this.startPositionY = canvasHeight;
     for (var i = 0; i < this.number; i++) {
-        this.positionX[i] = i * 20 + Math.random() * 20;
+        this.positionX[i] = i*20 + Math.random()*20;
         this.height[i] = 200 + Math.random() * 50;
         this.endPositionY[i] = this.startPositionY - this.height[i];
     }
