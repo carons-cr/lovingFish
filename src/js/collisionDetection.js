@@ -16,19 +16,19 @@ function bigFishEatingFruit(i) {
     scoreCalculation.eatenFruitNumber++;
     bigFish.bigBodyIndex = bigFish.bigBodyIndex >= 7 ? 7 : bigFish.bigBodyIndex + 1;
     scoreCalculation.fruitScore = fruit.fruitType[i] === "orange" ? 1 : 2;
-    scoreCalculation.addScore();
 }
 function  bigFishBabyFishCollisionDetection() {
     var bigFishPoint = new Point(bigFish.axisOriginX, bigFish.axisOriginY);
     var babyFishPoint = new Point(babyFish.axisOriginX, babyFish.axisOriginY);
     var distance = distanceDetection(babyFishPoint, bigFishPoint);
-    if (distance < 900) {
+    if (scoreCalculation.eatenFruitNumber > 0 && distance < 900) {
         bigFishFeedingBabyFish();
     }
 }
 function bigFishFeedingBabyFish() {
     babyFish.revive();
     bigFish.recover();
+    scoreCalculation.addScore();
 }
 var Point = function(x, y) {
     this.x = x;

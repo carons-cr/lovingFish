@@ -71,15 +71,19 @@ function gameloop() {
     canvasContextUpper.clearRect(0, 0, canvasWidth, canvasHeight);
     bigFish.draw();
     babyFish.draw();
-    bigFishFruitCollisionDetection();
-    bigFishBabyFishCollisionDetection();
+    if (babyFish.alive) {
+        bigFishFruitCollisionDetection();
+        bigFishBabyFishCollisionDetection();
+    }
     scoreCalculation.draw();
 }
 
 function onMouseMove(e) {
-    if (e.offsetX || e.layerX) {
-        mousePositionX = e.offsetX === undefined ? e.layerX : e.offsetX;
-        mousePositionY = e.offsetY === undefined ? e.layerY : e.offsetY;
+    if (babyFish.alive) {
+        if (e.offsetX || e.layerX) {
+            mousePositionX = e.offsetX === undefined ? e.layerX : e.offsetX;
+            mousePositionY = e.offsetY === undefined ? e.layerY : e.offsetY;
+        }
     }
 }
 

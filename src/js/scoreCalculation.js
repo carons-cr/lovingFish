@@ -15,5 +15,5 @@ ScoreCalculation.prototype.draw = function () {
 };
 ScoreCalculation.prototype.addScore = function () {
     this.totalScore += this.eatenFruitNumber*this.fruitScore*100;
-    this.eatenFruitNumber = 0;//很可能不需要，暂时留着
+    this.eatenFruitNumber = 0;
 };

@@ -17,6 +17,7 @@ var BabyFish = function () {
     this.babyEyeDuration = 0;
     this.babyEyeTimer = 0;
     this.babyEyeIndex = 0;
+    this.alive = true;
 };
 BabyFish.prototype.init = function () {
     this.axisOriginX = canvasWidth * 0.5 + 50;
@@ -86,6 +87,7 @@ BabyFish.prototype.babyBodyMonitor = function() {
         this.babyBodyTimer %= this.babyBodyDuration;
         if (this.babyBodyIndex > this.babyBodyNumber -1) {
             this.babyBodyIndex = this.babyBodyNumber -1;
+            this.alive = false;
         }
     }
 };
