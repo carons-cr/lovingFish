@@ -38,29 +38,31 @@ Fruit.prototype.draw = function() {
         }
     }
 };
-function fruitMonitor() {
+Fruit.prototype.fruitMonitor = function () {
     var aliveNumber = 0;
-    for(var i = 0; i < fruit.number; i++) {
-        if (fruit.alive[i]) {
+    for(var i = 0; i < this.number; i++) {
+        if (this.alive[i]) {
             aliveNumber++;
         }
     }
     if (aliveNumber < 42) {
-        sendFruit();
+        this.sendFruit();
     }
-}
-function sendFruit() {
-    for (var i = 0; i < fruit.number; i++) {
-        if (!fruit.alive[i]) {
-            fruit.born(i);
+};
+
+Fruit.prototype.sendFruit = function () {
+    for (var i = 0; i < this.number; i++) {
+        if (!this.alive[i]) {
+            this.born(i);
             return;
         }
     }
-}
+};
+
 Fruit.prototype.born = function(i) {
     Math.random() < 0.2 ? this.fruitType[i] = "blue" : this.fruitType[i] = "orange";
 
-    var bornAnemoneId = Math.floor(Math.random() * anemone.number);
+    var bornAnemoneId = Math.floor(Math.random()*anemone.number);
     this.bornPositionX[i] = anemone.positionX[bornAnemoneId];
     this.bornPositionY[i] = anemone.endPositionY[bornAnemoneId];
     this.width[i] = 0;

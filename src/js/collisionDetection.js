@@ -16,6 +16,7 @@ function bigFishEatingFruit(i) {
     scoreCalculation.eatenFruitNumber++;
     bigFish.bigBodyIndex = bigFish.bigBodyIndex >= 7 ? 7 : bigFish.bigBodyIndex + 1;
     scoreCalculation.fruitScore = fruit.fruitType[i] === "orange" ? 1 : 2;
+    whiteHalo.born(fruit.bornPositionX[i], fruit.bornPositionY[i]);
 }
 function  bigFishBabyFishCollisionDetection() {
     var bigFishPoint = new Point(bigFish.axisOriginX, bigFish.axisOriginY);
@@ -29,6 +30,7 @@ function bigFishFeedingBabyFish() {
     babyFish.revive();
     bigFish.recover();
     scoreCalculation.addScore();
+    orangeHalo.born(babyFish.axisOriginX, babyFish.axisOriginY);
 }
 var Point = function(x, y) {
     this.x = x;

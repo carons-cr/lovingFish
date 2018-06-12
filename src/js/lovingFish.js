@@ -19,6 +19,9 @@ var babyFish;
 
 var scoreCalculation;
 
+var whiteHalo;
+var orangeHalo;
+
 document.body.onload = game;
 function game() {
     init();
@@ -52,6 +55,11 @@ function init() {
 
     scoreCalculation = new ScoreCalculation();
     scoreCalculation.init();
+
+    whiteHalo = new whiteHalo();
+    orangeHalo = new orangeHalo();
+    whiteHalo.init();
+    orangeHalo.init();
 }
 
 function gameloop() {
@@ -65,7 +73,7 @@ function gameloop() {
 
     background.draw();
     anemone.draw();
-    fruitMonitor();
+    fruit.fruitMonitor();
     fruit.draw();
 
     canvasContextUpper.clearRect(0, 0, canvasWidth, canvasHeight);
@@ -76,6 +84,9 @@ function gameloop() {
         bigFishBabyFishCollisionDetection();
     }
     scoreCalculation.draw();
+
+    whiteHalo.draw();
+    orangeHalo.draw();
 }
 
 function onMouseMove(e) {
