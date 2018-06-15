@@ -17,12 +17,12 @@ orangeHalo.prototype.init = function () {
 
 orangeHalo.prototype.draw = function () {
     canvasContextUpper.save();
-    canvasContextUpper.lineWidth = 2;
+    canvasContextUpper.lineWidth = 4;
     canvasContextUpper.shadowBlur = 10;
-    canvasContextUpper.shadowColor = "white";
+    canvasContextUpper.shadowColor = "rgba(203, 91, 0, 1)";
     for (var i = 0; i < this.number; i++) {
         if (this.alive[i]) {
-            this.radius[i] >= 100 ? this.alive[i] = false : this.radius[i] += interval*0.1;
+            this.radius[i] >= 100 ? this.alive[i] = false : this.radius[i] += interval*0.08;
             var transparencyAlpha = 1 - this.radius[i]/100;
             canvasContextUpper.beginPath();
             canvasContextUpper.arc(this.axisOriginX[i], this.axisOriginY[i], this.radius[i], 0, Math.PI*2);
@@ -38,7 +38,7 @@ orangeHalo.prototype.born = function (axisOriginX, axisOriginY) {
     for (var i = 0; i < this.number; i++) {
         if (!this.alive[i]) {
             this.alive[i] = true;
-            this.radius[i] = 20;
+            this.radius[i] = 25;
             this.axisOriginX[i] = axisOriginX;
             this.axisOriginY[i] = axisOriginY;
             return;

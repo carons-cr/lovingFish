@@ -45,7 +45,7 @@ Fruit.prototype.fruitMonitor = function () {
             aliveNumber++;
         }
     }
-    if (aliveNumber < 42) {
+    if (aliveNumber < 35) {
         this.sendFruit();
     }
 };
@@ -60,10 +60,10 @@ Fruit.prototype.sendFruit = function () {
 };
 
 Fruit.prototype.born = function(i) {
-    Math.random() < 0.2 ? this.fruitType[i] = "blue" : this.fruitType[i] = "orange";
+    Math.random() < 0.3 ? this.fruitType[i] = "blue" : this.fruitType[i] = "orange";
 
     var bornAnemoneId = Math.floor(Math.random()*anemone.number);
-    this.bornPositionX[i] = anemone.positionX[bornAnemoneId];
+    this.bornPositionX[i] = anemone.endPositionX[bornAnemoneId];
     this.bornPositionY[i] = anemone.endPositionY[bornAnemoneId];
     this.width[i] = 0;
     this.alive[i] = true;

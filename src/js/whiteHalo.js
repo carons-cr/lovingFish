@@ -22,8 +22,8 @@ whiteHalo.prototype.draw = function () {
     canvasContextUpper.shadowColor = "white";
     for (var i = 0; i < this.number; i++) {
         if (this.alive[i]) {
-            this.radius[i] >= 50 ? this.alive[i] = false : this.radius[i] += interval*0.04;
-            var transparencyAlpha = 1 - this.radius[i]/50;
+            this.radius[i] >= 55 ? this.alive[i] = false : this.radius[i] += interval*0.05;
+            var transparencyAlpha = 1 - this.radius[i]/55;
             canvasContextUpper.beginPath();
             canvasContextUpper.arc(this.axisOriginX[i], this.axisOriginY[i], this.radius[i], 0, Math.PI*2);
             canvasContextUpper.closePath();
