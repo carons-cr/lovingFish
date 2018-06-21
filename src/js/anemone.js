@@ -31,8 +31,8 @@ Anemone.prototype.draw = function () {
     for (var i = 0; i < this.number; i++) {
         canvasContextLower.beginPath();
         canvasContextLower.moveTo(this.startPositionX[i], this.startPositionY);
-        var swingPositionX = this.endPositionX[i] + sinAngle*this.swingAmplitude[i];
-        canvasContextLower.quadraticCurveTo(this.controlPositionX[i], this.controlPositionY[i], swingPositionX, this.endPositionY[i]);
+        this.endPositionX[i] += sinAngle*this.swingAmplitude[i];
+        canvasContextLower.quadraticCurveTo(this.controlPositionX[i], this.controlPositionY[i], this.endPositionX[i], this.endPositionY[i]);
         canvasContextLower.stroke();
     }
     canvasContextLower.restore();
