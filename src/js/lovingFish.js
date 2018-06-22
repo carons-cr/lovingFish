@@ -22,6 +22,8 @@ var scoreCalculation;
 var whiteHalo;
 var orangeHalo;
 
+var dust;
+
 document.body.onload = game;
 function game() {
     init();
@@ -60,6 +62,9 @@ function init() {
     orangeHalo = new orangeHalo();
     whiteHalo.init();
     orangeHalo.init();
+
+    dust = new Dust();
+    dust.init();
 }
 
 function gameloop() {
@@ -87,6 +92,8 @@ function gameloop() {
 
     whiteHalo.draw();
     orangeHalo.draw();
+
+    dust.draw();
 }
 
 function onMouseMove(e) {

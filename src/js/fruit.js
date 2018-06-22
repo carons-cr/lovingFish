@@ -17,15 +17,15 @@ Fruit.prototype.init = function() {
         this.alive[i] = false;
         this.fruitType[i] = "";
         this.width[i] = 0;
-        this.speed[i] = Math.random() * 0.037 + 0.003;
+        this.speed[i] = Math.random() * 0.017 + 0.003;
     }
 };
 Fruit.prototype.draw = function() {
     for (var i = 0; i < this.number; i++) {
         if (this.alive[i]) {
-            var growWidth = this.speed[i] * interval * 50;
+            var growWidth = this.speed[i] * interval;
             var growPositionY = this.speed[i] * interval * 5;
-            if (this.width[i] <= 16) {
+            if (this.width[i] <= 14) {
                 var currentBornAnemoneId = this.bornAnemoneId[i];
                 this.bornPositionX[i] = anemone.endPositionX[currentBornAnemoneId];
                 this.bornPositionY[i] = anemone.endPositionY[currentBornAnemoneId];
@@ -50,7 +50,7 @@ Fruit.prototype.fruitMonitor = function () {
             aliveNumber++;
         }
     }
-    if (aliveNumber < 55) {
+    if (aliveNumber < 40) {
         this.sendFruit();
     }
 };

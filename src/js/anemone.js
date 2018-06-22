@@ -22,7 +22,6 @@ Anemone.prototype.init = function () {
 };
 Anemone.prototype.draw = function () {
     this.swingAngle += interval*0.0008;
-    var sinAngle = Math.sin(this.swingAngle);
     canvasContextLower.save();
     canvasContextLower.lineWidth = 20;
     canvasContextLower.lineCap = "round";
@@ -31,7 +30,7 @@ Anemone.prototype.draw = function () {
     for (var i = 0; i < this.number; i++) {
         canvasContextLower.beginPath();
         canvasContextLower.moveTo(this.startPositionX[i], this.startPositionY);
-        this.endPositionX[i] += sinAngle*this.swingAmplitude[i];
+        this.endPositionX[i] = this.startPositionX[i] + Math.sin(this.swingAngle) * this.swingAmplitude[i];
         canvasContextLower.quadraticCurveTo(this.controlPositionX[i], this.controlPositionY[i], this.endPositionX[i], this.endPositionY[i]);
         canvasContextLower.stroke();
     }
